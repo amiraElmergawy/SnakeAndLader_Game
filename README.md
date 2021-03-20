@@ -1,5 +1,8 @@
 # SnakeAndLadder_Game
 
+- game idea: simulation of snakes and ladders game, the game board consists of many squares, and some squares are opportunities to climb to higher areas in the event that the answer is correct to the question inside them, after answering correctly the user ascends to another square, and the previous square is indicated as correct through a small mark on it, And so on until all possible boxes that contain questions are completed, then the board disappears and the result of the tour appears with the username and his score.
+
+- setup and config.:
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.7.
 
 ## Development server
