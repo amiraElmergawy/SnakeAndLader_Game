@@ -1,0 +1,42 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 ar-dir">
+
+      <div class="row mx-auto text-center" *ngIf="questions[movementsNo].q !== ''">
+        <h1>
+          السؤال {{movementsNo | customPipe}}
+        </h1>
+        <h2>
+          {{questions[movementsNo].q}}
+        </h2>
+      </div>
+
+      <div class="row mx-auto">
+
+        <div class="box mx-auto mt-1" *ngIf="selectionFlag || questions[movementsNo].q === ''">
+          <select [(ngModel)]="step" (click)="selectSteps()">
+            <option disabled selected value="">اختر عدد الخطوات</option>
+            <option *ngFor="let step of dice" value="{{step}}">{{step}}</option>
+          </select>
+        </div>
+
+        <div class="chessboard">
+          <div *ngFor="let square of squares;let i=index; let o=odd; let e=even" [ngClass]="{'white':o, 'black':e}"
+            class="square">
+            <img src="/assets/user.png" alt="user" *ngIf="movments[movments.length-1] === square">
+            <div *ngFor="let move of movments; let i2=index">
+              <img src="/assets/checkmark.ico" alt="checkmark" *ngIf="movments[i2-1] === square && i!==0">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row mt-3 justify-content-around mx-auto">
+        <div class="square circle pt-2 btn true-btn" (click)="answer(true)">صح</div>
+        <div class="square circle pt-3 btn false-btn" (click)="answer(false)">خطأ</div>
+      </div>
+
+    </div>
+  </div>
+</div>
